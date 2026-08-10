@@ -1,30 +1,61 @@
-### Hi there <img src="https://user-images.githubusercontent.com/1303154/88677602-1635ba80-d120-11ea-84d8-d263ba5fc3c0.gif" width="29" alt="hi">
-It's Alireza!
-<!--
-**alireza-ebrahimi-ai/alireza-ebrahimi-ai** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+<div align="center">
+  <!-- Synthwave Header Image -->
+  <img src="https://media.giphy.com/media/JLAEst1DbUTmM/giphy.gif" alt="Synthwave Grid" width="100%">
+  
+  <br>
+  
+  <!-- Neon Typing Effect -->
+  <h1>
+    <img src="https://readme-typing-svg.demolab.com?font=Orbitron&weight=700&size=35&pause=1000&color=00FFFF&center=true&vCenter=true&width=800&lines=Hi,+I'm+Alireza+Ebrahimi;AI+/+ML+Scientist;Deep+Learning+|+NLP+|+RL;Welcome+to+the+Grid..." alt="Typing SVG" />
+  </h1>
+  
+  <!-- Neon Social Badges -->
+  <p align="center">
+    <a href="https://www.linkedin.com/in/alireza-ebrahimi/"><img src="https://img.shields.io/badge/LinkedIn-000000?style=for-the-badge&logo=linkedin&logoColor=00FFFF" alt="LinkedIn"></a>
+    <a href="https://github.com/alireza-ebrahimi-ai"><img src="https://img.shields.io/badge/GitHub-000000?style=for-the-badge&logo=github&logoColor=FF00FF" alt="GitHub"></a>
+    <a href="https://kaggle.com/"><img src="https://img.shields.io/badge/Kaggle-000000?style=for-the-badge&logo=kaggle&logoColor=FFFF00" alt="Kaggle"></a>
+  </p>
+</div>
 
-Here are some ideas to get you started:
+---
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
-- 🎓 CS student
-- 🌱 I’m currently learning Machine learning (ML)
-- 💬 Ask me about any thing you want.
-- 😄 Pronouns: He/Him
+### 🌌 Ａｂｏｕｔ　Ｍｅ
 
-<a href="https://www.kaggle.com/alirezaebrahimi"><img src="https://res.cloudinary.com/importdata/image/upload/v1595012924/kaggle_ksaktb.png" alt="drawing" width="75"/>
+*Entering Cyberspace... Data uploaded.*
 
-### Some insights about Github Profile
-![alireza-ebrahimi-ai's GitHub stats](https://github-readme-stats.vercel.app/api?username=alireza-ebrahimi-ai&count_private=true&theme=synthwave)
-![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=alireza-ebrahimi-ai&theme=synthwave)
+- 🔭 **Current Focus:** Deep Learning, Reinforcement Learning, and NLP architectures.
+- 🌱 **Currently exploring:** Agentic AI, Large Language Models (LLMs), and Reinforcement Learning from Human Feedback (RLHF).
+- 🧠 **AI philosophy:** Building robust, scalable, and intelligent models for the future of tech.
+- ⚡ **Fun fact:** When I'm not training models, I'm diving into the retro-future.
 
-### Languages and Tools:
-<img height="32" width="32" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/python/python.png" />  <img height="32" width="32" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/git/git.png" /> <img height="32" width="32" src="https://raw.githubusercontent.com/github/explore/78df643247d429f6cc873026c0622819ad797942/topics/github/github.png" /> <img height="32" width="32" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/terminal/terminal.png" />
-<img height="32" width="32" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/visual-studio-code/visual-studio-code.png" /> <img src="https://www.vectorlogo.zone/logos/jupyter/jupyter-icon.svg" alt="IPYNB" width="32" height="32"/> <a href="https://www.linux.org/" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linux/linux-original.svg" alt="linux" width="32" height="32"/> <a href="https://www.gnu.org/software/bash/" target="_blank">
+<br>
+
+### 💻 Ｔｅｃｈ　Ｓｔａｃｋ
+
+<div align="center">
+  <!-- Neon Tech Stack Badges (Black background with neon logos) -->
+  <img src="https://img.shields.io/badge/Python-000000?style=for-the-badge&logo=python&logoColor=00FFFF" alt="Python" />
+  <img src="https://img.shields.io/badge/TensorFlow-000000?style=for-the-badge&logo=tensorflow&logoColor=FF00FF" alt="TensorFlow" />
+  <img src="https://img.shields.io/badge/PyTorch-000000?style=for-the-badge&logo=pytorch&logoColor=FFFF00" alt="PyTorch" />
+  <img src="https://img.shields.io/badge/Scikit--Learn-000000?style=for-the-badge&logo=scikit-learn&logoColor=00FFFF" alt="Scikit-Learn" />
+  <img src="https://img.shields.io/badge/Jupyter-000000?style=for-the-badge&logo=jupyter&logoColor=FF00FF" alt="Jupyter" />
+  <img src="https://img.shields.io/badge/Linux-000000?style=for-the-badge&logo=linux&logoColor=FFFF00" alt="Linux" />
+  <img src="https://img.shields.io/badge/Docker-000000?style=for-the-badge&logo=docker&logoColor=00FFFF" alt="Docker" />
+</div>
+
+<br>
+
+### 📊 Ｓｔａｔｓ
+
+<p align="center">
+  <a href="https://github.com/alireza-ebrahimi-ai">
+    <img src="https://github-readme-stats.vercel.app/api?username=alireza-ebrahimi-ai&show_icons=true&theme=synthwave&hide_border=true&cache_seconds=86400&v=1" alt="Alireza's GitHub Stats" />
+  </a>
+  <a href="https://github.com/alireza-ebrahimi-ai">
+    <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=alireza-ebrahimi-ai&layout=compact&theme=synthwave&hide_border=true&cache_seconds=86400&v=1" alt="Top Languages" />
+  </a>
+</p>
+
+<p align="center">
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=alireza-ebrahimi-ai&theme=synthwave&hide_border=true&v=1" width="100%" alt="Activity Graph"/>
+</p>
