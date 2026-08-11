@@ -49,7 +49,7 @@
 
 <p align="center">
   <!-- This image is generated internally by your GitHub Action! -->
-  <img src="github-metrics.svg" alt="Alireza's GitHub Metrics" width="800">
+  <img src="github-metrics.svg" alt="Alireza's GitHub Metrics" width="450">
 </p>
 
 <!-- We are keeping this one as is, since your screenshot shows it working perfectly! -->
