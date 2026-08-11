@@ -23,31 +23,31 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          # Lock to Node 18 to guarantee stability and prevent the Node 24 warning
+          node-version: '18' 
           
       - name: Start Local Server & Generate Glowing SVGs
-        # This uses the token you saved earlier!
         env:
           PAT_1: ${{ secrets.METRICS_TOKEN }} 
         run: |
           cd github-readme-stats
           npm install
           
-          # Start the server in the background
-          npm start &
+          # Start the server in the background and save logs
+          npm start > server.log 2>&1 &
           
-          # Wait 10 seconds for the server to fully boot up
-          sleep 10
+          # Dynamically wait for the server to be ready (timeout after 30s)
+          # If it fails, print the server logs so we can see exactly why!
+          npx wait-on http://127.0.0.1:9000 -t 30000 || (cat server.log && exit 1)
           
-          # Fetch the Main Stats (with the true synthwave glow)
-          curl -s "http://localhost:9000/api?username=alireza-ebrahimi-ai&theme=synthwave&show_icons=true&hide_border=true" -o ../synthwave-stats.svg
+          # Fetch the Main Stats (Using 127.0.0.1 bypasses the IPv6 localhost bug!)
+          curl -f -s "http://127.0.0.1:9000/api?username=alireza-ebrahimi-ai&theme=synthwave&show_icons=true&hide_border=true" -o ../synthwave-stats.svg
           
           # Fetch the Top Languages
-          curl -s "http://localhost:9000/api/top-langs/?username=alireza-ebrahimi-ai&theme=synthwave&layout=compact&hide_border=true" -o ../synthwave-langs.svg
+          curl -f -s "http://127.0.0.1:9000/api/top-langs/?username=alireza-ebrahimi-ai&theme=synthwave&layout=compact&hide_border=true" -o ../synthwave-langs.svg
           
       - name: Cleanup and Commit to your Repo
         run: |
-          # Remove the cloned software so we don't accidentally commit it
           rm -rf github-readme-stats
           
           git config --global user.name "github-actions[bot]"
