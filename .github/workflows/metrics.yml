@@ -1,4 +1,4 @@
-name: Generate Synthwave Metrics
+name: Generate True Synthwave Stats
 
 on:
   schedule:
@@ -9,25 +9,49 @@ on:
       - main
 
 jobs:
-  github-metrics:
+  generate-stats:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
-      - name: Generate Sleek Metrics
-        uses: lowlighter/metrics@latest
+      - name: Checkout Your Profile Repository
+        uses: actions/checkout@v4
+      
+      - name: Clone GitHub Readme Stats
+        run: git clone https://github.com/anuraghazra/github-readme-stats.git
+        
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          token: ${{ secrets.METRICS_TOKEN }}
-          user: alireza-ebrahimi-ai
-          template: classic
+          node-version: '20'
           
-          # 1. 🗑️ ONLY keep the header (removes all the cluttered 0s)
-          base: header
+      - name: Start Local Server & Generate Glowing SVGs
+        # This uses the token you saved earlier!
+        env:
+          PAT_1: ${{ secrets.METRICS_TOKEN }} 
+        run: |
+          cd github-readme-stats
+          npm install
           
-          # 2. 🎨 Apply the true Synthwave neon palette
-          config_theme: synthwave 
+          # Start the server in the background
+          npm start &
           
-          # 3. 💻 Show a sleek language bar
-          plugin_languages: yes
-          # Ignore Jupyter so Python and C++ take the spotlight!
-          plugin_languages_ignored: jupyter notebook, html, css
-          plugin_languages_limit: 4
-          plugin_languages_details: percentage
+          # Wait 10 seconds for the server to fully boot up
+          sleep 10
+          
+          # Fetch the Main Stats (with the true synthwave glow)
+          curl -s "http://localhost:9000/api?username=alireza-ebrahimi-ai&theme=synthwave&show_icons=true&hide_border=true" -o ../synthwave-stats.svg
+          
+          # Fetch the Top Languages
+          curl -s "http://localhost:9000/api/top-langs/?username=alireza-ebrahimi-ai&theme=synthwave&layout=compact&hide_border=true" -o ../synthwave-langs.svg
+          
+      - name: Cleanup and Commit to your Repo
+        run: |
+          # Remove the cloned software so we don't accidentally commit it
+          rm -rf github-readme-stats
+          
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add synthwave-stats.svg synthwave-langs.svg
+          git commit -m "Update True Synthwave Stats" || exit 0
+          git push
