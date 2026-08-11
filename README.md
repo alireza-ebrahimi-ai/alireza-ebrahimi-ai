@@ -48,11 +48,11 @@
 ### 📊 Ｓｔａｔｓ
 
 <p align="center">
-  <!-- This image is generated internally by your GitHub Action! -->
-  <img src="github-metrics.svg" alt="Alireza's GitHub Metrics" width="450">
+  <img src="synthwave-stats.svg" alt="Alireza's GitHub Stats">
+  <img src="synthwave-langs.svg" alt="Top Languages">
 </p>
 
-<!-- We are keeping this one as is, since your screenshot shows it working perfectly! -->
+<!-- The Activity Graph is working perfectly for you, so we leave it untouched! -->
 <p align="center">
   <img src="https://github-readme-activity-graph.vercel.app/graph?username=alireza-ebrahimi-ai&theme=synthwave&hide_border=true&v=1" width="100%" alt="Activity Graph"/>
 </p>
