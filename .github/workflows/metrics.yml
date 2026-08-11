@@ -23,28 +23,28 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          # Lock to Node 18 to guarantee stability and prevent the Node 24 warning
-          node-version: '18' 
+          node-version: '20'
           
       - name: Start Local Server & Generate Glowing SVGs
         env:
           PAT_1: ${{ secrets.METRICS_TOKEN }} 
         run: |
           cd github-readme-stats
-          npm install
           
-          # Start the server in the background and save logs
-          npm start > server.log 2>&1 &
+          # Clean install all exact dependencies
+          npm ci
           
-          # Dynamically wait for the server to be ready (timeout after 30s)
-          # If it fails, print the server logs so we can see exactly why!
-          npx wait-on http://127.0.0.1:9000 -t 30000 || (cat server.log && exit 1)
+          # Start the server engine directly (Bypassing npm start)
+          node express.js > server.log 2>&1 &
           
-          # Fetch the Main Stats (Using 127.0.0.1 bypasses the IPv6 localhost bug!)
-          curl -f -s "http://127.0.0.1:9000/api?username=alireza-ebrahimi-ai&theme=synthwave&show_icons=true&hide_border=true" -o ../synthwave-stats.svg
+          # Give the server a few seconds to boot up
+          sleep 5
           
-          # Fetch the Top Languages
-          curl -f -s "http://127.0.0.1:9000/api/top-langs/?username=alireza-ebrahimi-ai&theme=synthwave&layout=compact&hide_border=true" -o ../synthwave-langs.svg
+          # Fetch Main Stats (with active retry logic just in case it's slow!)
+          curl --retry 10 --retry-delay 2 --retry-connrefused -f -s "http://127.0.0.1:9000/api?username=alireza-ebrahimi-ai&theme=synthwave&show_icons=true&hide_border=true" -o ../synthwave-stats.svg || (cat server.log && exit 1)
+          
+          # Fetch Top Languages
+          curl --retry 10 --retry-delay 2 --retry-connrefused -f -s "http://127.0.0.1:9000/api/top-langs/?username=alireza-ebrahimi-ai&theme=synthwave&layout=compact&hide_border=true" -o ../synthwave-langs.svg || (cat server.log && exit 1)
           
       - name: Cleanup and Commit to your Repo
         run: |
