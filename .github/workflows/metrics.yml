@@ -16,6 +16,8 @@ jobs:
     steps:
       - name: Checkout Your Profile Repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Fetches full history so git rebase works smoothly
       
       - name: Clone GitHub Readme Stats
         run: git clone https://github.com/anuraghazra/github-readme-stats.git
@@ -30,26 +32,17 @@ jobs:
           PAT_1: ${{ secrets.METRICS_TOKEN }} 
         run: |
           cd github-readme-stats
-          
-          # Clean install AND explicitly install express just in case!
           npm ci
           npm install express
           
-          # Force the server to port 9000 and run in background
           PORT=9000 node express.js > server.log 2>&1 &
-          
-          # Wait 5 seconds for it to fully start
           sleep 5
           
-          # 🔍 OBSERVABILITY: Print the server logs to the console!
           echo "==== SERVER BOOT LOGS ===="
           cat server.log
           echo "=========================="
           
-          # Fetch Main Stats (Bypass IPv6 issues by using 127.0.0.1)
           curl --retry 5 --retry-delay 2 --retry-connrefused -f -s "http://127.0.0.1:9000/api?username=alireza-ebrahimi-ai&theme=synthwave&show_icons=true&hide_border=true" -o ../synthwave-stats.svg
-          
-          # Fetch Top Languages
           curl --retry 5 --retry-delay 2 --retry-connrefused -f -s "http://127.0.0.1:9000/api/top-langs/?username=alireza-ebrahimi-ai&theme=synthwave&layout=compact&hide_border=true" -o ../synthwave-langs.svg
           
       - name: Cleanup and Commit to your Repo
@@ -60,4 +53,7 @@ jobs:
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add synthwave-stats.svg synthwave-langs.svg
           git commit -m "Update True Synthwave Stats" || exit 0
+          
+          # Pull latest edits from main branch before pushing to avoid conflicts
+          git pull --rebase origin main
           git push
