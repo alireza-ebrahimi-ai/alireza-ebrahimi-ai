@@ -48,14 +48,11 @@
 ### 📊 Ｓｔａｔｓ
 
 <p align="center">
-  <a href="https://github.com/alireza-ebrahimi-ai">
-    <img src="https://github-readme-stats.vercel.app/api?username=alireza-ebrahimi-ai&show_icons=true&theme=synthwave&hide_border=true&cache_seconds=86400&v=1" alt="Alireza's GitHub Stats" />
-  </a>
-  <a href="https://github.com/alireza-ebrahimi-ai">
-    <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=alireza-ebrahimi-ai&layout=compact&theme=synthwave&hide_border=true&cache_seconds=86400&v=1" alt="Top Languages" />
-  </a>
+  <!-- This image is generated internally by your GitHub Action! -->
+  <img src="github-metrics.svg" alt="Alireza's GitHub Metrics" width="800">
 </p>
 
+<!-- We are keeping this one as is, since your screenshot shows it working perfectly! -->
 <p align="center">
   <img src="https://github-readme-activity-graph.vercel.app/graph?username=alireza-ebrahimi-ai&theme=synthwave&hide_border=true&v=1" width="100%" alt="Activity Graph"/>
 </p>
