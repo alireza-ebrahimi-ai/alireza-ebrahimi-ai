@@ -2,6 +2,7 @@ name: Generate True Synthwave Stats
 
 on:
   schedule:
+    # Runs automatically every 12 hours
     - cron: "0 */12 * * *"
   workflow_dispatch:
   push:
@@ -49,8 +50,11 @@ jobs:
         run: |
           rm -rf github-readme-stats
           
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          # 🚨 CHANGE THIS EMAIL TO YOUR ACTUAL GITHUB EMAIL 🚨
+          # This tells GitHub that YOU made the commit, giving you green squares automatically!
+          git config --global user.name "alireza-ebrahimi-ai"
+          git config --global user.email "alirezaebrahimi.ai@gmail.com"
+          
           git add synthwave-stats.svg synthwave-langs.svg
           git commit -m "Update True Synthwave Stats" || exit 0
           
