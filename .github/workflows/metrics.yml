@@ -2,7 +2,6 @@ name: Generate True Synthwave Stats
 
 on:
   schedule:
-    # Runs automatically every 12 hours
     - cron: "0 */12 * * *"
   workflow_dispatch:
   push:
@@ -18,8 +17,8 @@ jobs:
       - name: Checkout Your Profile Repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0 # Fetches full history so git rebase works smoothly
-      
+          fetch-depth: 0
+
       - name: Clone GitHub Readme Stats
         run: git clone https://github.com/anuraghazra/github-readme-stats.git
         
@@ -35,29 +34,35 @@ jobs:
           cd github-readme-stats
           npm ci
           npm install express
-          
           PORT=9000 node express.js > server.log 2>&1 &
           sleep 5
           
-          echo "==== SERVER BOOT LOGS ===="
-          cat server.log
-          echo "=========================="
-          
           curl --retry 5 --retry-delay 2 --retry-connrefused -f -s "http://127.0.0.1:9000/api?username=alireza-ebrahimi-ai&theme=synthwave&show_icons=true&hide_border=true" -o ../synthwave-stats.svg
           curl --retry 5 --retry-delay 2 --retry-connrefused -f -s "http://127.0.0.1:9000/api/top-langs/?username=alireza-ebrahimi-ai&theme=synthwave&layout=compact&hide_border=true" -o ../synthwave-langs.svg
-          
+
+      # 🕹️ RETRO SYNTHWAVE CONTRIBUTION SNAKE
+      - name: Generate Synthwave Snake Animation
+        uses: Platane/snk/svg-only@v3
+        with:
+          github_user_name: alireza-ebrahimi-ai
+          # Custom Synthwave Palette:
+          # Snake = Neon Pink (#ff007f)
+          # Dots = Dark Background -> Deep Purple -> Violet -> Electric Blue -> Cyan
+          outputs: |
+            github-snake.svg?color_snake=#ff007f&color_dots=#161b22,#3d1e6d,#800080,#00c8ff,#00ffff
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Cleanup and Commit to your Repo
         run: |
           rm -rf github-readme-stats
           
-          # 🚨 CHANGE THIS EMAIL TO YOUR ACTUAL GITHUB EMAIL 🚨
-          # This tells GitHub that YOU made the commit, giving you green squares automatically!
           git config --global user.name "alireza-ebrahimi-ai"
           git config --global user.email "alirezaebrahimi.ai@gmail.com"
           
-          git add synthwave-stats.svg synthwave-langs.svg
-          git commit -m "Update True Synthwave Stats" || exit 0
+          # Add the new snake SVG to git!
+          git add synthwave-stats.svg synthwave-langs.svg github-snake.svg
+          git commit -m "Update True Synthwave Stats and Snake" || exit 0
           
-          # Pull latest edits from main branch before pushing to avoid conflicts
           git pull --rebase origin main
           git push
