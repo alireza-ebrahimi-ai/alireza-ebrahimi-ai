@@ -52,7 +52,6 @@
   <img src="synthwave-langs.svg" alt="Top Languages">
 </p>
 
-<!-- The Activity Graph is working perfectly for you, so we leave it untouched! -->
 <p align="center">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=alireza-ebrahimi-ai&theme=synthwave&hide_border=true&v=1" width="100%" alt="Activity Graph"/>
+  <img src="https://streak-stats.demolab.com?user=alireza-ebrahimi-ai&theme=synthwave&hide_border=true" alt="GitHub Streak" />
 </p>
