@@ -55,3 +55,8 @@
 <p align="center">
   <img src="https://streak-stats.demolab.com?user=alireza-ebrahimi-ai&theme=synthwave&hide_border=true" alt="GitHub Streak" />
 </p>
+
+<!-- 🐍 Animated Synthwave Snake -->
+<p align="center">
+  <img src="github-snake.svg" alt="Contribution Snake" />
+</p>
